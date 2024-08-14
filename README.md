@@ -28,7 +28,7 @@ mkdir ~/tiago_public_ws
 ### 2. Install the TIAGO packages (inside your workspace folder)
 
 ```bash
-wget https://raw.githubusercontent.com/pal-robotics/tiago_tutorials/kinetic-devel/ tiago_public-melodic.rosinstall
+wget https://raw.githubusercontent.com/pal-robotics/tiago_tutorials/kinetic-devel/tiago_public-melodic.rosinstall
 ```
 
 ```bash
