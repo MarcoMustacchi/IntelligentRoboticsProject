@@ -10,6 +10,8 @@
 <a href="https://github.com/MarcoMustacchi/IntelligentRoboticsProject/raw/master/Assignment-2.pdf">📄Task2</a>
 <a href="https://github.com/MarcoMustacchi/IntelligentRoboticsProject/raw/master/IR_Assignment2.pdf">📄Report2</a>
 
+# Dependencies
+<a href="https://github.com/MarcoMustacchi/IntelligentRoboticsProject/raw/master/TIAGO Tutorials - Standard Install Procedure.pdf">📄TIAGO - Standard Install Procedure</a>
 
 # Assignment 1
 switch to branch <a href="https://github.com/MarcoMustacchi/IntelligentRoboticsProject/tree/assignment1">Assignment1</a>
