@@ -11,8 +11,6 @@
 <a href="https://github.com/MarcoMustacchi/IntelligentRoboticsProject/raw/master/IR_Assignment2.pdf">📄Report2</a>
 
 # Dependencies
-<a href="https://github.com/MarcoMustacchi/IntelligentRoboticsProject/raw/master/TIAGO Tutorials - Standard Install Procedure.pdf">📄TIAGO - Standard Install Procedure</a>
-
 **NB.** This guide has been extracted from the official Wiki available at Robots/TIAGo/Tutorials so please, if you have any problem during the following steps, please take a look also at the official documentation.
 
 TIAGO is a service robot produced by PAL Robotics. It is essentially a humanoid robot with the kinematic model of a simple mobile manipulator (differential mobile base + 6dof anthropomorphic manipulator). At the end of this install procedure you will be able to reproduce a very complex simulation that replicates all the features and capability of the real TIAGO robot. Below the results obtained at the end of this install guide.
@@ -39,7 +37,7 @@ sudo rosdep init
 rosdep update
 ```
 
-### 4. run the following instruction to make sure that all dependencies referenced in the workspace are installed
+### 4. Run the following to make sure that all dependencies referenced in the workspace are installed
 ```bash
 rosdep install -y --from-paths src --ignore-src --rosdistro noetic --skip-keys "urdf_test omni_drive_controller orocos_kdl pal_filters libgazebo9-dev pal_usb_utils speed_limit_node camera_calibration_files pal_moveit_plugins pal_startup_msgs pal_local_joint_control pal_pcl_points_throttle_and_filter current_limit_controller hokuyo_node dynamixel_cpp pal_moveit_capabilities pal_pcl dynamic_footprint gravity_compensation_controller pal-orbbec-openni2 pal_loc_measure pal_map_manager ydlidar_ros_driver"
 ```
