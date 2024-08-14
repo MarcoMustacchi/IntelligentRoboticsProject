@@ -19,65 +19,58 @@ TIAGO is a service robot produced by PAL Robotics. It is essentially a humanoid 
 
 ## Installation Steps
 
-### 1. Create Tiago workspace (optional, remind that you have to use this workspace for the assignments):
+### 1. Create Tiago workspace
 
+Currently source-based installation is provided.
 ```bash
 mkdir ~/tiago_public_ws
+cd ~/tiago_public_ws
 ```
 
 ### 2. Install the TIAGO packages (inside your workspace folder)
-
 ```bash
-wget https://raw.githubusercontent.com/pal-robotics/tiago_tutorials/kinetic-devel/tiago_public-melodic.rosinstall
+wget https://raw.githubusercontent.com/pal-robotics/tiago_tutorials/noetic-devel/tiago_public-noetic.rosinstall
+rosinstall src /opt/ros/noetic tiago_public-noetic.rosinstall
 ```
 
+### 3. Run this command to make sure that all dependencies are installed
 ```bash
-ros install src /opt/ros/melodic tiago_public-melodic.rosinstall
+sudo rosdep init
+rosdep update
 ```
 
+### 4. run the following instruction to make sure that all dependencies referenced in the workspace are installed
 ```bash
-rosdep install --from-paths src --ignore-src -y --rosdistro melodic --skip-keys="opencv2 opencv2-nonfreepal_laser_filters speed_limit_node sensor_to_cloud hokuyo_nodelibdw-devpython-graphitesend-pip python-statsd pal_filterspal_vo_server pal_usb_utils pal_pcl pal_pcl_points_throttle_and_filter pal_kartopal_local_joint_control camera_calibration_filespal_startup_msgs pal-orbbec-openni dummy_actuators_managerpal_local_planner gravity_compensation_controller current_limit_controllerdynamic_footprint dynamixel_cpp tf_lookup opencv3 joint_impedance_trajectory_controller cartesian_impedance_controlleromni_base_description omni_drive_controller"
+rosdep install -y --from-paths src --ignore-src --rosdistro noetic --skip-keys "urdf_test omni_drive_controller orocos_kdl pal_filters libgazebo9-dev pal_usb_utils speed_limit_node camera_calibration_files pal_moveit_plugins pal_startup_msgs pal_local_joint_control pal_pcl_points_throttle_and_filter current_limit_controller hokuyo_node dynamixel_cpp pal_moveit_capabilities pal_pcl dynamic_footprint gravity_compensation_controller pal-orbbec-openni2 pal_loc_measure pal_map_manager ydlidar_ros_driver"
 ```
 
-### 3. Build the workspace
-
+### 5. Build the workspace
 ```bash
-source /opt/ros/melodic/setup.bash
+source /opt/ros/noetic/setup.bash
+catkin build -DCATKIN_ENABLE_TESTING=0 -j $(expr `nproc` / 2)
 ```
 
+### 6. Source the ROS workspace using ~/.bashrc
 ```bash
-catkin build -DCATKIN_ENABLE_TESTING=0
+source ~/tiago_public_ws/devel/setup.bash
+```
+or **(Recommended but not mandatory)**
+```bash
+echo "source ~/tiago_public_ws/devel/setup.bash">> ~/.bashrc
 ```
 
-```bash
-source devel/setup.bash
-```
+Now you can close and reopen your shell. 
+From this moment on, your shell will be always updated and pointing to your ROS workspace.
 
-### 4. Source the ROS workspace using ~/.bashrc (Recommended but not mandatory)
-
-```bash
-echo"source /opt/ros/melodic/setup.bash">> ~/.bashrc
-```
-
-```bash
-echo"source ~/tiago_public_ws/devel/setup.bash">> ~/.bashrc
-```
-
-Now you can close and reopen your shell. From this moment on, your shell will be always updated and pointing to your ROS workspace.
-
-
-### 5. Test your simulation
-
+### 7. Test your simulation
 To launch the simulation of the TIAGo **Steel**, execute:
-
 ```bash
-roslaunchtiago_gazebo tiago_gazebo.launch public_sim:=true robot:=steel
+roslaunch tiago_gazebo tiago_gazebo.launch public_sim:=true robot:=steel
 ```
 
 The **Titanium** version can be launched as follows:
-
 ```bash
-roslaunchtiago_gazebo tiago_gazebo.launch public_sim:=true robot:=titanium
+roslaunch tiago_gazebo tiago_gazebo.launch public_sim:=true robot:=titanium
 ```
 
 # Assignment 1
