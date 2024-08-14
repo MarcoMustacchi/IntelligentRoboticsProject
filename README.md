@@ -17,7 +17,7 @@
 
 TIAGO is a service robot produced by PAL Robotics. It is essentially a humanoid robot with the kinematic model of a simple mobile manipulator (differential mobile base + 6dof anthropomorphic manipulator). At the end of this install procedure you will be able to reproduce a very complex simulation that replicates all the features and capability of the real TIAGO robot. Below the results obtained at the end of this install guide.
 
-## InstallationSteps
+## Installation Steps
 
 ### 1. Create Tiago workspace (optional, remind that you have to use this workspace for the assignments):
 
