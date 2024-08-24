@@ -10,6 +10,36 @@
 <a href="https://github.com/MarcoMustacchi/IntelligentRoboticsProject/raw/master/Assignment-2.pdf">📄Task2</a>
 <a href="https://github.com/MarcoMustacchi/IntelligentRoboticsProject/raw/master/IR_Assignment2.pdf">📄Report2</a>
 
+# Installation Guide
+## Step 1: Create Workspace
+```bash
+mkdir -p ~/tiago_public_ws/src
+```
+
+## Step 2: Navigate to Workspace
+```bash
+cd ~/tiago_public_ws
+```
+
+## Step 3: Initialize the Workspace
+```bash
+catkin_make
+```
+This will create the necessary build, devel, and src directories. 
+It also configures the workspace for ROS development.
+
+
+## Step 4: Navigate to src folder:
+```bash
+cd ~/tiago_public_ws/src
+```
+
+## Step 5: Clone the Package 
+```bash
+git clone https://github.com/MarcoMustacchi/IntelligentRoboticsProject.git
+```
+This will create the "tiago_iaslab_simulation" package
+
 # Dependencies
 **NB.** This guide has been extracted from the official Wiki available at Robots/TIAGo/Tutorials so please, if you have any problem during the following steps, please take a look also at the official documentation.
 
@@ -17,11 +47,8 @@ TIAGO is a service robot produced by PAL Robotics. It is essentially a humanoid 
 
 ## Installation Steps
 
-### 1. Create Tiago workspace
-
-Currently source-based installation is provided.
+### 1. Navigate to workspace
 ```bash
-mkdir ~/tiago_public_ws
 cd ~/tiago_public_ws
 ```
 
