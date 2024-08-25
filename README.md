@@ -161,3 +161,14 @@ my_ros_workspace/            # Root of the ROS workspace
 ├── install/             # Install space (for installing built packages)
 └── logs/                # Logs from builds and runs
 ```
+
+# Fix a possible issue with LaserScan in simulation
+The LaserScan in the simulation may not be visible.  
+The problem is related to the driver version of the graphic card that you used.
+
+#### To solve the problem, try the following instructions:
+* Go to **Software & Updates -> Additional driver** (see picture below)  
+  <img src="https://github.com/MarcoMustacchi/IntelligentRoboticsProject/blob/master/Fix_Laser_Scan_Issue.jpeg">
+* If you are using the native Ubuntu driver (X.org Nouveau), switch to the NVIDIA driver.
+* Try using driver version 470.
+* If version 470 does not work, try other versions. The driver version may vary depending on your NVIDIA model.
