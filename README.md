@@ -23,7 +23,7 @@ cd ~/tiago_public_ws
 
 ### Step 3: Initialize the Workspace
 ```bash
-catkin_make
+catkin build
 ```
 This will create the necessary build, devel, and src directories. 
 It also configures the workspace for ROS development.
@@ -55,12 +55,16 @@ cd ~/tiago_public_ws
 ### 2. Install the TIAGO packages (inside your workspace folder)
 ```bash
 wget https://raw.githubusercontent.com/pal-robotics/tiago_tutorials/noetic-devel/tiago_public-noetic.rosinstall
+```
+```bash
 rosinstall src /opt/ros/noetic tiago_public-noetic.rosinstall
 ```
 
 ### 3. Run this command to make sure that all dependencies are installed
 ```bash
 sudo rosdep init
+```
+```bash
 rosdep update
 ```
 
@@ -72,6 +76,8 @@ rosdep install -y --from-paths src --ignore-src --rosdistro noetic --skip-keys "
 ### 5. Build the workspace
 ```bash
 source /opt/ros/noetic/setup.bash
+```
+```bash
 catkin build -DCATKIN_ENABLE_TESTING=0 -j $(expr `nproc` / 2)
 ```
 
@@ -96,6 +102,50 @@ roslaunch tiago_gazebo tiago_gazebo.launch public_sim:=true robot:=steel
 The **Titanium** version can be launched as follows:
 ```bash
 roslaunch tiago_gazebo tiago_gazebo.launch public_sim:=true robot:=titanium
+```
+
+### 8. Delete all the installation scripts and setup files
+For installation scripts
+```bash
+cd ~/tiago_public_ws
+```
+```bash
+rm tiago_public-noetic.rosinstall
+```
+and
+```bash
+cd ~/tiago_public_ws/src
+```
+```bash
+rm .rosinstall
+```
+For the setup files
+```bash
+cd ~/tiago_public_ws/src
+```
+```bash
+rm setup.bash setup.sh setup.zsh
+```
+
+## Additional packages for Assignment 2
+You need to add the package gazebo_ros_link_attacher in your workspace
+```bash
+cd ~/tiago_public_ws/src
+```
+clone the GitHub repository
+```bash
+git clone https://github.com/pal-robotics/gazebo_ros_link_attacher.git
+```
+install the dependecies
+```bash
+cd ~/tiago_public_ws
+```
+```bash
+rosdep install --from-paths src --ignore-src -r -y
+```
+compile just the new package
+```bash
+catkin build gazebo_ros_link_attacher
 ```
 
 # Assignment 1
