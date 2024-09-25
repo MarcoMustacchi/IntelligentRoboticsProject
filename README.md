@@ -45,14 +45,12 @@ This will create the "tiago_iaslab_simulation" package
 
 TIAGO is a service robot produced by PAL Robotics. It is essentially a humanoid robot with the kinematic model of a simple mobile manipulator (differential mobile base + 6dof anthropomorphic manipulator). At the end of this install procedure you will be able to reproduce a very complex simulation that replicates all the features and capability of the real TIAGO robot. Below the results obtained at the end of this install guide.
 
-## Installation Steps
-
-### 1. Navigate to workspace
+#### 1. Navigate to workspace
 ```bash
 cd ~/tiago_public_ws
 ```
 
-### 2. Install the TIAGO packages (inside your workspace folder)
+#### 2. Install the TIAGO packages (inside your workspace folder)
 ```bash
 wget https://raw.githubusercontent.com/pal-robotics/tiago_tutorials/noetic-devel/tiago_public-noetic.rosinstall
 ```
@@ -60,7 +58,19 @@ wget https://raw.githubusercontent.com/pal-robotics/tiago_tutorials/noetic-devel
 rosinstall src /opt/ros/noetic tiago_public-noetic.rosinstall
 ```
 
-### 3. Run this command to make sure that all dependencies are installed
+> #### Warning: version compatibility
+> When you download the required repositories using `rosinstall`, the repositories will be cloned from the latest version by default. <br>
+> To get a specific tag, you will need to do this manually after the initial clone.
+> ##### Manually Checkout a Specific Tag:
+> After cloning the repositories, navigate to the tiago_navigation directory and check out the specific tag you need.
+> ```bash
+> cd ~/tiago_public_ws/src/tiago_navigation
+> ```
+> ```bash
+> git checkout 2.1.5
+> ```
+
+#### 3. Run this command to make sure that all dependencies are installed
 ```bash
 sudo rosdep init
 ```
@@ -68,12 +78,12 @@ sudo rosdep init
 rosdep update
 ```
 
-### 4. Run the following to make sure that all dependencies referenced in the workspace are installed
+#### 4. Run the following to make sure that all dependencies referenced in the workspace are installed
 ```bash
 rosdep install -y --from-paths src --ignore-src --rosdistro noetic --skip-keys "urdf_test omni_drive_controller orocos_kdl pal_filters libgazebo9-dev pal_usb_utils speed_limit_node camera_calibration_files pal_moveit_plugins pal_startup_msgs pal_local_joint_control pal_pcl_points_throttle_and_filter current_limit_controller hokuyo_node dynamixel_cpp pal_moveit_capabilities pal_pcl dynamic_footprint gravity_compensation_controller pal-orbbec-openni2 pal_loc_measure pal_map_manager ydlidar_ros_driver"
 ```
 
-### 5. Build the workspace
+#### 5. Build the workspace
 ```bash
 source /opt/ros/noetic/setup.bash
 ```
@@ -81,7 +91,7 @@ source /opt/ros/noetic/setup.bash
 catkin build -DCATKIN_ENABLE_TESTING=0 -j $(expr `nproc` / 2)
 ```
 
-### 6. Source the ROS workspace using ~/.bashrc
+#### 6. Source the ROS workspace using ~/.bashrc
 ```bash
 source ~/tiago_public_ws/devel/setup.bash
 ```
@@ -93,7 +103,7 @@ echo "source ~/tiago_public_ws/devel/setup.bash">> ~/.bashrc
 Now you can close and reopen your shell. 
 From this moment on, your shell will be always updated and pointing to your ROS workspace.
 
-### 7. Test your simulation
+#### 7. Test your simulation
 To launch the simulation of the TIAGo **Steel**, execute:
 ```bash
 roslaunch tiago_gazebo tiago_gazebo.launch public_sim:=true robot:=steel
@@ -104,7 +114,7 @@ The **Titanium** version can be launched as follows:
 roslaunch tiago_gazebo tiago_gazebo.launch public_sim:=true robot:=titanium
 ```
 
-### 8. Delete all the installation scripts and setup files
+#### 8. Delete all the installation scripts and setup files
 For installation scripts
 ```bash
 cd ~/tiago_public_ws
