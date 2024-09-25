@@ -58,7 +58,7 @@ wget https://raw.githubusercontent.com/pal-robotics/tiago_tutorials/noetic-devel
 rosinstall src /opt/ros/noetic tiago_public-noetic.rosinstall
 ```
 
-> #### Warning: version compatibility
+> ### Warning: version compatibility
 > When you download the required repositories using `rosinstall`, the repositories will be cloned from the latest version by default. <br>
 > To get a specific tag, you will need to do this manually after the initial clone.
 > ##### Manually Checkout a Specific Tag:
